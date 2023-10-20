@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: rgb(41, 42, 45);
+}
+
+p,
+input,
+h1,
+h2 {
+  color: white;
+}
