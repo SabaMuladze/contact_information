@@ -4,18 +4,18 @@
     <div class="flex flex-col gap-2">
       <div class="flex flex-col">
         <label for="">User</label>
-        <input type="text" class="bg-grays outline-none px-4 py-2">
+        <input v-model="user" type="text" class="bg-grays outline-none px-4 py-2">
       </div>
       <div class="flex flex-col">
         <label for="">Mobile Number</label>
-        <input type="number" class="bg-grays outline-none px-4 py-2">
+        <input v-model="mobilePhone" type="number" class="bg-grays outline-none px-4 py-2">
       </div>
       <div class="flex flex-col">
         <label for="">Email</label>
-        <input type="email" class="bg-grays outline-none px-4 py-2">
+        <input v-model="email" type="email" class="bg-grays outline-none px-4 py-2">
       </div>
       <div class="flex justify-center ">
-        <button class="px-8 py-2 bg-white hover:rounded-lg delay-75 ease-in-out">Add User</button>
+        <button @click="addUser" class="px-8 py-2 bg-white hover:rounded-lg delay-75 ease-in-out">Add User</button>
       </div>
     </div>
     <div class="flex flex-col gap-6 mt-6">
@@ -60,7 +60,12 @@ export default {
     }
   },
   methods: {
-
+    addUser() {
+      let obj = { email: this.email, user: this.user, mobilePhone: this.mobilePhone }
+      if (this.user.length > 2 && this.email.length > 8 && this.mobilePhone > 8) {
+        this.arr.push(obj)
+      }
+    }
   },
 }
 
