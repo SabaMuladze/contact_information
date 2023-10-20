@@ -19,14 +19,14 @@
       </div>
     </div>
     <div class="flex flex-col gap-6 mt-6">
-      <div v-for="card in arr" :key="card.mobilePhone" class="bg-grays rounded-lg p-4 flex items-center justify-between">
+      <div v-for="(card, index) in arr" :key="index" class="bg-grays rounded-lg p-4 flex items-center justify-between">
         <div>
           <h2>{{ card.user }}</h2>
           <h2>{{ card.mobilePhone }}</h2>
           <h2>{{ card.email }}</h2>
         </div>
         <div>
-          <p class="text-3xl text-blues cursor-pointer">X</p>
+          <p @click="deleteUser(index)" class="text-3xl text-blues cursor-pointer">X</p>
         </div>
       </div>
     </div>
@@ -64,7 +64,13 @@ export default {
       let obj = { email: this.email, user: this.user, mobilePhone: this.mobilePhone }
       if (this.user.length > 2 && this.email.length > 8 && this.mobilePhone > 8) {
         this.arr.push(obj)
+        this.user = ''
+        this.email = ''
+        this.mobilePhone = ''
       }
+    },
+    deleteUser(index) {
+      this.arr.splice(index, 1)
     }
   },
 }
