@@ -1,6 +1,6 @@
 
 <template>
-  <div class="bg-blues flex flex-col px-6 py-4">
+  <div class="bg-blues flex flex-col px-6 py-4 md:rounded-xl">
     <div class="flex flex-col gap-2">
       <div class="flex flex-col">
         <label for="">User</label>
